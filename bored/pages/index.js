@@ -3,6 +3,7 @@ import Message from "../components/message";
 import { useEffect, useState } from "react";
 import { db } from "../utils/firebase";
 import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
+import Link from "next/link";
 
 export default function Home() {
   // Create state with all posts
@@ -33,7 +34,13 @@ export default function Home() {
       <div className="my-12 text-lg font-medium">
         <h2>See what other people are saying!</h2>
         {allPosts.map((post) => {
-          return <Message {...post} key={post.id}></Message>;
+          return (
+            <Message {...post} key={post.id}>
+              <Link href={{ pathname: `/${post.id}`, query: { ...post } }}>
+                {post.comments?.length > 0 ? post.comments?.length : 0} comments
+              </Link>
+            </Message>
+          );
         })}
       </div>
     </>

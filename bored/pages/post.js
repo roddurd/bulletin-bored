@@ -58,6 +58,10 @@ export default function Post() {
       username: user.displayName,
     });
     setPost({ description: "" }); //clear description after successful post
+    toast.success("Successfully posted!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+    });
     return route.push("/"); //redirect to home page
   };
 
