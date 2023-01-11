@@ -1,15 +1,46 @@
-import { auth } from "../utils/firebase";
+import { auth, db } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 export default function Post() {
   //Form state
   const [post, setPost] = useState({ description: "" });
+  const [user, loading] = useAuthState(auth);
+  const route = useRouter();
 
   //Submit post
   const submitPost = async (e) => {
     e.preventDefault(); // prevents loss of data on refresh
+    //Check if length is 0
+    if (!post.description) {
+      toast.error("Description field cannot be empty!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000, //three seconds before error disappears
+      });
+      return;
+    }
+    //Check if length exceeds max
+    if (post.description.length > 280) {
+      toast.error("Description field cannot exceed 280 characters!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000, //three seconds before error disappears
+      });
+      return;
+    }
+    //Make a new post
+    const collectionRef = collection(db, "posts");
+    await addDoc(collectionRef, {
+      ...post,
+      timestamp: serverTimestamp(),
+      user: user.uid,
+      avatar: user.photoURL,
+      username: user.displayName,
+    });
+    setPost({ description: "" }); //clear description after successful post
+    return route.push("/"); //redirect to home page
   };
   return (
     <div className="my-20 p-12 shadow-lg rounded-lg max-w-md mx-auto">
