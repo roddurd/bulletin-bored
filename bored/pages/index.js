@@ -4,6 +4,18 @@ import { useEffect, useState } from "react";
 import { db } from "../utils/firebase";
 import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 import Link from "next/link";
+import { auth } from "../utils/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
+function SignIn() {
+  return <h2>Sign in to get started.</h2>;
+}
+
+function SignInTag() {
+  const [user, loading] = useAuthState(auth);
+  if (user) return;
+  return <SignIn />;
+}
 
 export default function Home() {
   // Create state with all posts
@@ -35,6 +47,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold py-5">
           See what other people are saying!
         </h2>
+        <SignInTag />
         {allPosts.map((post) => {
           return (
             <Message {...post} key={post.id}>
