@@ -42,7 +42,8 @@ export default function Home() {
                 className="font-bold"
                 href={{ pathname: `/${post.id}`, query: { ...post } }}
               >
-                {post.comments?.length > 0 ? post.comments?.length : 0} comments
+                {post.comments?.length > 0 ? post.comments?.length : 0}{" "}
+                {post.comments?.length == 1 ? "comment" : "comments"}
               </Link>
             </Message>
           );
