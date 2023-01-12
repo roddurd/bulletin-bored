@@ -96,8 +96,8 @@ export default function Post() {
           ></textarea>
           <p
             //   make post description red if length greater than 280
-            className={`text-blue-500 font-medium text-sm ${
-              post.description.length > 280 ? "text-red-600" : ""
+            className={`text-green-600 font-bold text-md ${
+              post.description.length > 280 ? "text-red-500" : ""
             }`}
           >
             {post.description.length}/280
