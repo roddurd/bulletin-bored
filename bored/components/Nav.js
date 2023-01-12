@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <nav className="flex justify-between items-center py-10">
       <Link href="/">
-        <button className="text-3xl font-medium">Bulletin Bored</button>
+        <button className="text-5xl font-medium">Bulletin Bored</button>
       </Link>
       <ul className="flex items-center gap-10">
         {!user && (
