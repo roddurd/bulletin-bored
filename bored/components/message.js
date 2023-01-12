@@ -15,7 +15,7 @@ export default function Message({
         {timestamp?.toDate().toDateString()}
       </h2> */}
       <div className="py-4">
-        <p>{description}</p>
+        <p className="break-words">{description}</p>
       </div>
       {children}
     </div>
