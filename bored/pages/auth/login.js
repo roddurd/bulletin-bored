@@ -29,12 +29,12 @@ export default function Login() {
   }, [user]); // will rerun every time user changes
 
   return (
-    <div className="shadow-xl mt-32 p-10 text-gray-700 rounded-lg">
+    <div className="shadow-xl shadow-white mt-32 p-10 text-white bg-zinc-800 rounded-lg">
       <h2 className="text-2xl font-medium">Join Now!</h2>
       <div className="py-4">
         <button
           onClick={GoogleLogin}
-          className="text-white bg-gray-700 w-full font-medium rounded-lg flex align-middle p-4 gap-4"
+          className="text-white bg-blue-500 w-full font-medium rounded-lg flex align-middle p-4 gap-4"
         >
           <FcGoogle className="text-2xl" />
           Sign in with Google

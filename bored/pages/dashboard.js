@@ -45,7 +45,7 @@ export default function Dashboard() {
   }, [user, loading]);
   return (
     <div>
-      <h1 className="text-2xl font-bold py-5">Your posts</h1>
+      <h1 className="text-2xl text-white font-bold py-5">Your posts</h1>
       <div>
         {posts.map((post) => {
           return (

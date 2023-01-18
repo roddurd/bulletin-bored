@@ -80,15 +80,15 @@ export default function Post() {
   }, [user, loading]);
 
   return (
-    <div className="my-20 p-12 shadow-lg rounded-lg max-w-md mx-auto">
+    <div className="my-20 p-12 shadow-xl bg-zinc-800 shadow-white rounded-lg max-w-md mx-auto">
       <form onSubmit={submitPost}>
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-2xl font-bold text-white">
           {post.hasOwnProperty("id")
             ? "Edit your post"
             : "Create your new post"}
         </h1>
         <div className="py-2">
-          <h3 className="text-lg font-medium py-2">Description</h3>
+          <h3 className="text-lg text-white font-medium py-2">Description</h3>
           <textarea
             value={post.description}
             onChange={(e) => setPost({ ...post, description: e.target.value })}

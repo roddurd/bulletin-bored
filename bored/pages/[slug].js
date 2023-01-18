@@ -68,17 +68,17 @@ export default function Details() {
             type="text"
             value={message}
             placeholder="Add a comment"
-            className="bg-gray-800 w-full p-2 text-white text-sm rounded-lg"
+            className="bg-gray-800 w-full p-2 text-white text-sm rounded-l-lg"
           />
           <button
             onClick={submitComment}
-            className="bg-blue-500 text-white py-2 px-4 text-sm rounded-lg"
+            className="bg-blue-500 text-white py-2 px-4 text-sm rounded-r-lg"
           >
             Submit
           </button>
         </div>
         <div className="py-6">
-          <h2 className="font-bold">Comments</h2>
+          <h2 className="font-bold text-white">Comments</h2>
           {allMessages?.map((msg) => (
             <div
               className="bg-white p-4 my-4 border-2 rounded-xl"

@@ -8,7 +8,7 @@ import { auth } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 function SignIn() {
-  return <h2>Sign in to get started.</h2>;
+  return <h2 className="text-white">Sign in to get started.</h2>;
 }
 
 function SignInTag() {
@@ -44,7 +44,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="my-12 text-lg font-medium">
-        <h2 className="text-2xl font-bold py-5">
+        <h2 className="text-2xl text-white font-bold py-5">
           See what other people are saying!
         </h2>
         <SignInTag />
